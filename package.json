@@ -1,0 +1,29 @@
+{
+  "name": "learning-unit-tests",
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "version": "1.0.0",
+  "description": "Repositório destinado a prática e aos estudos de testes unitários em Javascript com Jest",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davisonalves/learning-unit-tests.git"
+  },
+  "author": "Davison Alves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davisonalves/learning-unit-tests/issues"
+  },
+  "homepage": "https://github.com/davisonalves/learning-unit-tests#readme",
+  "devDependencies": {
+    "jest": "^27.4.7",
+    "jsdom": "^19.0.0"
+  }
+}

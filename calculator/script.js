@@ -21,3 +21,5 @@ function calc(){
         document.getElementById('resultado').innerHTML = "Vazio"
     }
 }
+
+module.exports = insert, clean, back, calc
