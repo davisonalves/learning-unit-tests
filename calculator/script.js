@@ -1,15 +1,21 @@
+var operation = ''
+
 function insert(numero){
-    var numero2 = document.getElementById('resultado').innerHTML
-    document.getElementById('resultado').innerHTML = numero2 + numero
+    operation += numero
+    updateFront('resultado', operation)
+    return operation
 }
 
 function clean(){
-    document.getElementById('resultado').innerHTML = ""
+    operation = ''
+    updateFront('resultado', operation)
+    return operation 
 }
 
 function back(){
-    var resultado = document.getElementById('resultado').innerHTML
-    document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1)
+    operation = operation.substring(0, operation.length -1)
+    updateFront('resultado', operation)
+    return operation
 }
 
 function calc(){
@@ -22,4 +28,12 @@ function calc(){
     }
 }
 
-module.exports = insert, clean, back, calc
+function updateFront(element, content){
+    document.getElementById(element).innerHTML = content
+}
+
+module.exports = {
+    insert,
+    clean,
+    back
+}
