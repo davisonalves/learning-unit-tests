@@ -18,14 +18,16 @@ function back(){
     return operation
 }
 
-function calc(){
-    var resultado = document.getElementById('resultado').innerHTML
-    if(resultado){
-        document.getElementById('resultado').innerHTML = eval(resultado)
+function calc(){   
+    if(operation){
+        operation = eval(operation)
+        updateFront('resultado', operation)
     }
     else{
-        document.getElementById('resultado').innerHTML = "Vazio"
+        operation = ''
+        updateFront('resultado', operation)
     }
+    return String(operation)
 }
 
 function updateFront(element, content){
@@ -35,5 +37,6 @@ function updateFront(element, content){
 module.exports = {
     insert,
     clean,
-    back
+    back,
+    calc
 }
