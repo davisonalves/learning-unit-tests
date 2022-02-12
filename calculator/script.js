@@ -1,25 +1,42 @@
+var operation = ''
+
 function insert(numero){
-    var numero2 = document.getElementById('resultado').innerHTML
-    document.getElementById('resultado').innerHTML = numero2 + numero
+    operation += numero
+    updateFront('resultado', operation)
+    return operation
 }
 
 function clean(){
-    document.getElementById('resultado').innerHTML = ""
+    operation = ''
+    updateFront('resultado', operation)
+    return operation 
 }
 
 function back(){
-    var resultado = document.getElementById('resultado').innerHTML
-    document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1)
+    operation = operation.substring(0, operation.length -1)
+    updateFront('resultado', operation)
+    return operation
 }
 
-function calc(){
-    var resultado = document.getElementById('resultado').innerHTML
-    if(resultado){
-        document.getElementById('resultado').innerHTML = eval(resultado)
+function calc(){   
+    if(operation){
+        operation = eval(operation)
+        updateFront('resultado', operation)
     }
     else{
-        document.getElementById('resultado').innerHTML = "Vazio"
+        operation = ''
+        updateFront('resultado', operation)
     }
+    return String(operation)
 }
 
-module.exports = insert, clean, back, calc
+function updateFront(element, content){
+    document.getElementById(element).innerHTML = content
+}
+
+module.exports = {
+    insert,
+    clean,
+    back,
+    calc
+}
